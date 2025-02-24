@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Inventory System</title>
+  <!-- 引入基础样式 -->
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #f5f5f5; }
+    #app { padding: 20px; }
+    #threejs-container { width: 100%; height: 500px; background-color: #ddd; }
+  </style>
+<script async defer 
+  	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARcS9I6G6UzDQVcccw9iYTcffSLSwytiE&callback=initMap"></script>
+
+
+ <script>
+    window.initMap = function() {
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8
+      });
+      console.log("✅ Google map has successfully loaded");
+    };
+    
+</script>
+
+</head>
+
+<body>
+  <div id="app">loading...</div>
+  <div id="map" style="height: 500px; width: 100%;"></div>
+  <p id="coordinates">Click on the map for coordinates</p>
+  <script type="module" src="./js/main.js"></script>
+  <div id="material-form">
+  <label>Category: <input type="text" id="material-name"></label>
+  <label>Density (kg/m³): <input type="number" id="material-density"></label>
+  <label>Quantity: <input type="number" id="material-quantity"></label>
+  <label>Volume (m³): <input type="number" id="material-volume"></label>
+  <p>Choose its location <span id="material-coordinates"></span></p>
+  <button id="save-material">Save</button>
+  <button id="download-materials">Save to database</button>
+</div>
+
+<h3>Material_List</h3>
+<ul id="material-list"></ul>
+
+<div id="image-upload-section">
+  <h3>upload pictures</h3>
+  <input type="file" id="image-upload" accept="image/png, image/jpeg, image/jpg">
+  <p id="image-upload-feedback"></p>
+  <div id="image-preview"></div>
+</div>
+
+</body>
+</html>
+
+
